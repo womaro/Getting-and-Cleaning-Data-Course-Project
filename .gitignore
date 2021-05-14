@@ -37,3 +37,8 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+#data files
+getdata_projectfiles_UCI_HAR_Dataset.zip
+UCI HAR Dataset/
+*.RProj
