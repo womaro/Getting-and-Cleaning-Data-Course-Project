@@ -1,4 +1,4 @@
-# Data file download section
+# 1. Data file download section
 
 src <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
@@ -8,8 +8,9 @@ ZIPrawDataFile <- download.file(src, dst)
 
 library(utils)
 library(data.table)
+# 1. END
 
-#Combined files of train and test data created
+#2. Combined files of train and test data created
 rawDataFiles <- unzip(dst, overwrite = TRUE)
 
 locTrain <- "C:/Users/i0397027/OneDrive - Sanofi/Documents/R/RTestingJohnsHopkinsUni/CleaningDataProjectAssignement/Getting-and-Cleaning-Data-Course-Project/UCI HAR Dataset/train/X_train.txt"
@@ -19,25 +20,15 @@ tempTrain <- fread(locTrain, header = FALSE, sep = " ")
 tempTest <- fread(locTest, header = FALSE, sep = " ")
 
 tempTrainTest <- rbind(tempTrain, tempTest)
+#2. END
 
-head(tempTrainTest)
+#3. Assigning names to columns, as per feature.txt file
 
 locNames <- "C:/Users/i0397027/OneDrive - Sanofi/Documents/R/RTestingJohnsHopkinsUni/CleaningDataProjectAssignement/Getting-and-Cleaning-Data-Course-Project/UCI HAR Dataset/features.txt"
 
 tempNames <- fread(locNames, header = FALSE)
 
-nrow(tempNames)
 
-nameChange <- function(x,y){
-  for (i in nrow(y)) {
-    colnames(x)[i] <- toString(y[i,2])
-  }
-}
+names(tempTrainTest) <- unlist(tempNames[,2])
+#3. END
 
-colnames(tempTrainTest)[1] <- toString(tempNames[1,2])
-
-nameChange(tempTrainTest, tempNames)
-
-names(tempTrainTest)
-
-colnames(tempTrainTest)[1] <- tempNames[,2]
