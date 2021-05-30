@@ -38,7 +38,8 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-#data files
+#data files and other temp files used during project, and not neccesary during run
 getdata_projectfiles_UCI_HAR_Dataset.zip
 UCI HAR Dataset/
 *.RProj
+test_Runs.R
