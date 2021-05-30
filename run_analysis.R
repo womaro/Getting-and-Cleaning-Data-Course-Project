@@ -113,5 +113,9 @@ names(finalSet) <- gsub("_1", "", names(finalSet))
 names(finalSet)
 head(finalSet, 20)
 
+output <- paste(root, "/output.txt", sep="")
+
+write.table(finalSet, output, row.name=FALSE) 
+
 # 9. END
 
