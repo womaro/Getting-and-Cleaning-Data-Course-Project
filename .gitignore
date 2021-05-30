@@ -43,3 +43,4 @@ getdata_projectfiles_UCI_HAR_Dataset.zip
 UCI HAR Dataset/
 *.RProj
 test_Runs.R
+ProjectScript.R
