@@ -33,6 +33,7 @@ tempTrain <- fread(locTrain, header = FALSE, sep = " ")
 tempTest <- fread(locTest, header = FALSE, sep = " ")
 
 tempTrainTest <- rbind(tempTrain, tempTest)
+
 #2. END
 
 #3. Assigning names to columns, as per feature.txt file, all names in small letters
@@ -103,7 +104,7 @@ names(tempTrainTest) <- gsub("\\)", "", names(tempTrainTest))
 
 finalSet <- tempTrainTest %>% group_by(activitytype, subject) %>%  summarise(across(everything(), list(mean)))
 
-names(finalSet) <- gsub("_1", "mean", names(finalSet))
+names(finalSet) <- gsub("_1", "", names(finalSet))
 
 # 8. END
 
